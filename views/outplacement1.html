@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>Equipe Outplacement</title>
+
+<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+<meta name="author" content="Hakim El Hattab">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="../vendor/reveal.js/css/reveal.css">
+<link rel="stylesheet" href="../vendor/reveal.js/css/theme/blood.css" id="theme">
+
+<!-- Code syntax highlighting../vendor/reveal.js/ -->
+<link rel="stylesheet" href="../vendor/reveal.js/clib/css/zenburn.css">
+
+<script src="../vendor/assets/js/jquery-1.12.1.min.js">
+
+<!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '../vendor/reveal.js/ccss/print/pdf.css' : '../vendor/reveal.js/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h3 data-fragment-index="1" class="fragment fade-out" id="fade-over">Equipe ~Outplacement~</h3>
+            <h3 data-fragment-index="2" class="fragment">Equipe Sillmaril</h3>
+            <p>
+            <small class="fragment">S01E01</small>
+            </p>
+        </section>
+
+        <section>
+            <section>
+                <h2>Sobre o Projeto</h2>
+                <p>
+                Histórico de Passagem
+                </p>
+            </section>
+
+            <section>
+                <h2>Sobre o Projeto</h2>
+                <p>
+                O objetivo deste projeto é garantir que quem fez parte da InfoJr nunca seja esquecido. No sistema será mantido o registro dos membros da empresa discriminando alguns dados principais sobre o membro na empresa
+                </p>
+                <ul>
+                    <li class="fragment">Período de participação;</li>
+                    <li class="fragment">Cargos ocupados (Infojr e MEJ);</li>
+                    <li class="fragment">Projetos que participou.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <h2>Sprint</h2>
+            <p>
+
+            </p>
+            <h2>Team</h2>
+        </section>
+
+        <!-- <section>
+                    <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+                        <h2>... and GIFs!</h2>
+                    </section>
+                </section> -->
+
+
+        <section style="text-align: left;">
+            <h1>THE END</h1>
+            <p>
+            - <a href="http://slides.com">Try the online editor</a> <br>
+            - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+            </p>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="../vendor/reveal.js/lib/js/head.min.js"></script>
+<script src="../vendor/reveal.js/js/reveal.js"></script>
+
+<script>
+
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+            // Parallax background image
+    parallaxBackgroundImage: "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg",
+
+    // Parallax background size
+    parallaxBackgroundSize: '2100px 900px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+    // Number of pixels to move the parallax background per slide
+    // - Calculated automatically unless specified
+    // - Set to 0 to disable movement along an axis
+    parallaxBackgroundHorizontal: 200,
+    parallaxBackgroundVertical: 50,
+
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+    { src: '../vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '../vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '../vendor/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: '../vendor/reveal.js/plugin/zoom-js/zoom.js', async: true },
+    { src: '../vendor/reveal.js/plugin/notes/notes.js', async: true }
+    ]
+    });
+
+    $(function() {
+       disCount =  0;
+       ids      = [];
+       displays = [];
+       function makeDisappearAfterFragment(id) {
+           if(!$("#" + id)) return;
+
+           ids[disCount] = id;
+           displays[disCount] = $("#" + id).css("display");
+           disCount++;
+           Reveal.addEventListener( 'fragmentshown', function( event ) {
+                   if ($(event.fragment).attr("id") === id) {
+                       $(event.fragment).css("display", "none");
+                   }
+               } );
+
+           Reveal.addEventListener( 'fragmenthidden', function( event ) {
+                   if ($(event.fragment).attr("id") === id) {
+                       $(event.fragment).css("display", displays[ids.indexOf(id)]);
+                   }
+               } );
+       }
+
+           makeDisappearAfterFragment("fade-over");
+       // makeDisappearAfterFragment("liImg1");
+    });
+
+</script>
+
+</body>
+</html>
